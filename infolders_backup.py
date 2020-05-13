@@ -10,7 +10,7 @@ for path, dirs, files in os.walk(os.getcwd()):
             for a, _, c in os.walk(os.path.join(path,dir)):
                 for cc in c:
                     frompath=os.path.join(a,cc)
-                    structure=os.path.join(outputpath, a[len(inputpath):])
+                    structure=os.path.join(outputpath, a[len(inputpath):]) #if the join function messes things up then simply use'+'
                     os.makedirs(structure, exist_ok=True)
                     shutil.copy(frompath, structure)
     print('Finished')                    
