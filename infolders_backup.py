@@ -1,3 +1,6 @@
+import os
+import shutil
+
 inputpath='everything before the structure comes in'
 outputpath='structure comes after'
 
