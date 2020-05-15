@@ -11,7 +11,6 @@ file_str=['.txt', '.pub', '.doc', '.docx']
 for dirpath, dirnames, filenames in os.walk(os.getcwd()):#you can replace the path
 
     for filen in filenames:
-        print()
         if os.path.splitext(filen)[1] in file_str or (filen.endswith('.mat') and filen.startswith('SC')):
             structure = outputpath + '\\' + dirpath[len(os.getcwd()):] #you can replace the path. I was using cwd only for testing
             structure_file = structure + '\\' + filen
