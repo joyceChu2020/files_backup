@@ -19,14 +19,15 @@ for dirpath, dirnames, filenames in os.walk(os.getcwd()):#you can replace the pa
 
             if os.path.exists(structure_file):
             
-                def checkid(somefile):
-                    sha256=hashlib.sha256()
-                    sha256.update(somefile.encode('utf-8'))
-                    return sha256.hexdigest()
+                structure_file_read=open(structure_file).read()
+                structure_file_id=hashlib.sha256(structure_file_read.encode('utf-8')).hexdigest()
+                
+                original_read=open(dirpath + '\\' + filen).read()
+                original_id=hashlib.sha256(original_read.encode('utf-8')).hexdigest()
 
-                if checkid(structure_file)!=checkid(dirpath + '\\' + filen):
+                if structure_file!=original_id:
                     print(structure_file)
-                    whatToDo=input("The file you are trying to back up has the same name than the existing one.\nIf you want to replace the existing file (which has different content), please type Y.\n Otherwise (where I'm only assuming you want to rename the file name), please type N \n Then press ENTER: ")
+                    whatToDo=input("The file you are trying to back up has the same name than the existing one.\nIf you want to replace the existing file (which has different content), please type Y.\nOtherwise (where I'm only assuming you want to rename the file name), please type N \nThen press ENTER: ")
                     if whatToDo == 'Y':
                         os.makedirs(structure, exist_ok=True)
                         print(structure)
