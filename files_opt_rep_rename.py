@@ -27,6 +27,7 @@ for dirpath, dirnames, filenames in os.walk(os.getcwd()):#you can replace the pa
 
                 if structure_file!=original_id:
                     print(structure_file)
+                    print(dirpath + '\\' + filen)
                     whatToDo=input("The file you are trying to back up has the same name than the existing one.\nIf you want to replace the existing file (which has different content), please type Y.\nOtherwise (where I'm only assuming you want to rename the file name), please type N \nThen press ENTER: ")
                     if whatToDo == 'Y':
                         os.makedirs(structure, exist_ok=True)
