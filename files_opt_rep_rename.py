@@ -36,9 +36,10 @@ for dirpath, dirnames, filenames in os.walk(os.getcwd()):#you can replace the pa
                         print(structure)
                         shutil.copy(dirpath + '\\' + filen, structure)
                     if whatToDo == 'N':
-                        nameYourFile=input('please type out a new valid file name: ')
-                        newFile=structure + '\\' + nameYourFile + '.txt'
-                        os.makedirs(structure, exist_ok=True)
+                        nameYourFile=input('please type out a new valid file name with the extention: ')
+                        newFile=structure + '\\' + nameYourFile
+                        create_newFile=open(newFile, 'w')
+                        create_newFile.close()
                         shutil.copyfile(dirpath + '\\' + filen, newFile)
 
                 
